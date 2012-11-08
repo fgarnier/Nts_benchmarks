@@ -66,7 +66,7 @@ def model_extraction(dir_name,root_filename):
         print bcolors.OKGREEN+"[PASSED] "+bcolors.ENDC+"Fix point test on file : {0} succeeded.".format(nts_file)
         return []
    
-    except subprocess.CalledProcessError as errno:
+        except subprocess.CalledProcessError as errno:
         print bcolors.FAIL+"[FAILED] There are some differences between the output of the first pass and the output of the second pass."+bcolors.ENDC+"Call to {0} returned {1}".format(nts_file,errno)
         failure_collection.append(nts_file)
         return failure_collection
@@ -96,7 +96,7 @@ def check_each_dir(dir_list):
 
 def flata_test_model(dir_name,root_filename):
     failure_collection = []
-    nts_file=dir_name+"/"+root_filename+".nts"
+    nts_file=dir_name+"/"+root_filename+".c.nts"
     c_file=dir_name+"/"+root_filename+".c"
     nts_gen_file=dir_name+"/"+root_filename+".c.nts_dump"
     nts_second_pass_file=dir_name+"/"+root_filename+".nts_dump_dump"
@@ -108,7 +108,7 @@ def flata_test_model(dir_name,root_filename):
         """
         subprocess.check_call(['flatac_syntax_sementic_check',c_file],stdout=dnull,stderr=dnull)
         print bcolors.OKGREEN+"[PASSED] "+bcolors.ENDC+"flata accepts {0} nts definition".format(nts_file)
-       	subprocess.check_call(['rm',nts_gen_file],stdout=dnull,stderr=dnull)
+       	subprocess.check_call(['mv',nts_gen_file,nts_file],stdout=dnull,stderr=dnull)
         subprocess.check_call(['rm',ca_types],stdout=dnull,stderr=dnull)
         return failure_collection
 
