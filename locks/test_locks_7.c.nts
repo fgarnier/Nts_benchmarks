@@ -1,58 +1,4 @@
 nts __locks_test_locks_7 ; 
-NonDetInt{
-
-out ndet,validity_ndet_: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { havoc(ndet,validity_ndet_) }
-}
-__NdetValInRange{
-in lowerb,lbval,upperb,upbval: int;
-
-out ndval,ndvalid: int;
-initial sinit;
-final s1;
- 
- sinit->s1 { ndval' <=  upperb and ndval' >= lowerb and ndvalid' = 1 and havoc(ndval,ndvalid) }
-}
-__VERIFIER_nondet_int{
-
-out ndet,validity_ndet_: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { havoc(ndet,validity_ndet_) }
-}
-__assert_fail{
-in a,b,c,d,e,f,g,h: int;
-
-initial sinit;
-final none;
-error s0; 
- sinit->s0 { havoc() }
-}
-__builtin_alloca{
-in x,val_x: int;
-
-out y,vx: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { y' = x and vx' = val_x and havoc(y,vx) }
-}
-abs{
-in x,val: int;
-
-out y,val_y: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { x >= 0 and y' = x and val_y' = val and havoc(y,val_y) } 
- sinit->sfinal { x < 0 and y' = -x and val_y' = val and havoc(y,val_y) }
-}
 get_exit_nondet{
 
 retval: int;
@@ -144,44 +90,6 @@ error s10,s100,s101,s104,s105,s106,s107,s108,s12,s15,s18,s20,s22,s24,s27,s3,s30,
  s97->s103 { p7 != 0 and havoc() } 
  sinit->s0 { havoc() } 
  sinter0->s4 { (cond',validity__cond_')=get_exit_nondet() and havoc(cond,validity__cond_) }
-}
-memcpy{
-in dest_off,dest_val,src_off,srv_val,sizein,size_val: int;
-
-out ret_addr,valid_ret: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { ret_addr' = dest_off and valid_ret' = dest_val and havoc(ret_addr,valid_ret) }
-}
-printf{
-in a,b,c,d: int;
-
-out off,val: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { havoc(off,val) }
-}
-strlen{
-in ptr_off,ptr_valid: int;
-
-out len,valid_len: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { valid_len' = ptr_valid and havoc(valid_len,len) }
-}
-strstr{
-in a,b,c,d: int;
-
-out off,val: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { val' = b and havoc(off,val) }
 }
 
  

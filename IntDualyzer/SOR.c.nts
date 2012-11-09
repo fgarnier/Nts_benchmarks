@@ -1,14 +1,5 @@
 nts __IntDualyzer_SOR ; 
 validity__dim_,dim: int;
-NonDetInt{
-
-out ndet,validity_ndet_: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { havoc(ndet,validity_ndet_) }
-}
 SOR_execute{
 in M,validity__M_,N,validity__N_,omega,validity__omega_,offset__G_,validity__G_,num_iterations,validity__num_iterations_: int;
 
@@ -163,24 +154,6 @@ error s1,s100,s102,s106,s108,s112,s115,s117,s122,s124,s128,s131,s133,s139,s14,s1
  sinter8->s162 { _error() and havoc() } 
  sinter9->s166 { _error() and havoc() }
 }
-__NdetValInRange{
-in lowerb,lbval,upperb,upbval: int;
-
-out ndval,ndvalid: int;
-initial sinit;
-final s1;
- 
- sinit->s1 { ndval' <=  upperb and ndval' >= lowerb and ndvalid' = 1 and havoc(ndval,ndvalid) }
-}
-__VERIFIER_nondet_int{
-
-out ndet,validity_ndet_: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { havoc(ndet,validity_ndet_) }
-}
 __assert_fail{
 in a,b,c,d,e,f,g,h: int;
 
@@ -188,15 +161,6 @@ initial sinit;
 final none;
 error s0; 
  sinit->s0 { havoc() }
-}
-__builtin_alloca{
-in x,val_x: int;
-
-out y,vx: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { y' = x and vx' = val_x and havoc(y,vx) }
 }
 _error{
 
@@ -207,16 +171,6 @@ error s1,s2;
  s0->sinter0 { havoc(_ndet_arg_1,_ndet_arg_2) } 
  sinit->s0 { havoc() } 
  sinter0->s2 { __assert_fail(_ndet_arg_0,1,_ndet_arg_1,1,4,1,_ndet_arg_2,1) and havoc() }
-}
-abs{
-in x,val: int;
-
-out y,val_y: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { x >= 0 and y' = x and val_y' = val and havoc(y,val_y) } 
- sinit->sfinal { x < 0 and y' = -x and val_y' = val and havoc(y,val_y) }
 }
 init_arrF2{
 in offset__a_,validity__a_,i,validity__i_,j,validity__j_,m,validity__m_,n,validity__n_: int;
@@ -271,44 +225,6 @@ error s1,s3;
  sinit->s0 { mid_1_size' = (10*10)*4 and mid_2_size' = (10*10)*4 and havoc() } 
  sinter0->s2 { init_arrF2(_ndet_arg_0,1,0,1,0,1,dim-1,-1,dim-1,-1) and havoc() } 
  sinter1->s4 { SOR_execute(dim,-1,dim,-1,2,1,_ndet_arg_0,1,1,1) and havoc() }
-}
-memcpy{
-in dest_off,dest_val,src_off,srv_val,sizein,size_val: int;
-
-out ret_addr,valid_ret: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { ret_addr' = dest_off and valid_ret' = dest_val and havoc(ret_addr,valid_ret) }
-}
-printf{
-in a,b,c,d: int;
-
-out off,val: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { havoc(off,val) }
-}
-strlen{
-in ptr_off,ptr_valid: int;
-
-out len,valid_len: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { valid_len' = ptr_valid and havoc(valid_len,len) }
-}
-strstr{
-in a,b,c,d: int;
-
-out off,val: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { val' = b and havoc(off,val) }
 }
 
  

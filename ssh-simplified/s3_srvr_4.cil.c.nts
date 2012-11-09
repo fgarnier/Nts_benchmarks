@@ -1,22 +1,4 @@
 nts __ssh_simplified_s3_srvr_4_cil ; 
-NonDetInt{
-
-out ndet,validity_ndet_: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { havoc(ndet,validity_ndet_) }
-}
-__NdetValInRange{
-in lowerb,lbval,upperb,upbval: int;
-
-out ndval,ndvalid: int;
-initial sinit;
-final s1;
- 
- sinit->s1 { ndval' <=  upperb and ndval' >= lowerb and ndvalid' = 1 and havoc(ndval,ndvalid) }
-}
 __VERIFIER_nondet_int{
 
 out ndet,validity_ndet_: int;
@@ -25,33 +7,6 @@ final s1;
  
  s0->s1 { havoc() } 
  sinit->s0 { havoc(ndet,validity_ndet_) }
-}
-__assert_fail{
-in a,b,c,d,e,f,g,h: int;
-
-initial sinit;
-final none;
-error s0; 
- sinit->s0 { havoc() }
-}
-__builtin_alloca{
-in x,val_x: int;
-
-out y,vx: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { y' = x and vx' = val_x and havoc(y,vx) }
-}
-abs{
-in x,val: int;
-
-out y,val_y: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { x >= 0 and y' = x and val_y' = val and havoc(y,val_y) } 
- sinit->sfinal { x < 0 and y' = -x and val_y' = val and havoc(y,val_y) }
 }
 main{
 
@@ -66,25 +21,6 @@ error s2,s4;
  s5->s6 { ret_val_' = tmp and havoc(ret_val_) } 
  sinit->s0 { havoc() } 
  sinter0->s5 { (tmp',validity__tmp_')=ssl3_accept(s,1) and havoc(tmp,validity__tmp_) }
-}
-memcpy{
-in dest_off,dest_val,src_off,srv_val,sizein,size_val: int;
-
-out ret_addr,valid_ret: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { ret_addr' = dest_off and valid_ret' = dest_val and havoc(ret_addr,valid_ret) }
-}
-printf{
-in a,b,c,d: int;
-
-out off,val: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { havoc(off,val) }
 }
 ssl3_accept{
 in initial_state,validity__initial_state_: int;
@@ -561,25 +497,6 @@ error s1,s103,s105,s106,s108,s11,s111,s112,s117,s119,s122,s124,s127,s13,s130,s13
  sinter7->s486 { (ret',validity__ret_')=__VERIFIER_nondet_int() and havoc(ret,validity__ret_) } 
  sinter8->s91 { (ret',validity__ret_')=__VERIFIER_nondet_int() and havoc(ret,validity__ret_) } 
  sinter9->s304 { (ret',validity__ret_')=__VERIFIER_nondet_int() and havoc(ret,validity__ret_) }
-}
-strlen{
-in ptr_off,ptr_valid: int;
-
-out len,valid_len: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { valid_len' = ptr_valid and havoc(valid_len,len) }
-}
-strstr{
-in a,b,c,d: int;
-
-out off,val: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { val' = b and havoc(off,val) }
 }
 
  

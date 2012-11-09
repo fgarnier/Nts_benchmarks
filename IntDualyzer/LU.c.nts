@@ -1,63 +1,5 @@
 nts __IntDualyzer_LU ; 
 validity__dim_,dim: int;
-LU_copy_matrix{
-in M,validity__M_,N,validity__N_,offset__lu_,validity__lu_,offset__A_,validity__A_: int;
-
-i,j: int;
-initial sinit;
-final s12;
-error s1,s14,s16,s20,s22,s23,s26,s28,s29,s32,s34,s36,s38,s39,s42,s44,s46,s48,s49,s5,s52,s54,s56,s57,s59,s61,s8; 
- s0->s2 { i' = 0 and havoc(i) } 
- s10->s12 { havoc() } 
- s11->s13 { j < N and havoc() } 
- s11->s15 { j >= N and havoc() } 
- s13->s17 { havoc() } 
- s15->s18 { havoc() } 
- s17->s19 { i < 0 and havoc() } 
- s17->s21 { i >= 0 and havoc() } 
- s18->s24 { i' = i+1 and havoc(i) } 
- s19->s25 { havoc() } 
- s2->s3 { havoc() } 
- s21->s25 { i >= dim and havoc() } 
- s21->s27 { i < dim and havoc() } 
- s24->s3 { havoc() } 
- s25->sinter0 { havoc() } 
- s27->s31 { j < 0 and havoc() } 
- s27->s33 { j >= 0 and havoc() } 
- s3->s4 { havoc() } 
- s30->s27 { havoc() } 
- s31->s35 { havoc() } 
- s33->s35 { j >= dim and havoc() } 
- s33->s37 { j < dim and havoc() } 
- s35->sinter1 { havoc() } 
- s37->s41 { i < 0 and havoc() } 
- s37->s43 { i >= 0 and havoc() } 
- s4->s6 { i < M and j' = 0 and havoc(j) } 
- s4->s7 { i >= M and havoc() } 
- s40->s37 { havoc() } 
- s41->s45 { havoc() } 
- s43->s45 { i >= dim and havoc() } 
- s43->s47 { i < dim and havoc() } 
- s45->sinter2 { havoc() } 
- s47->s51 { j < 0 and havoc() } 
- s47->s53 { j >= 0 and havoc() } 
- s50->s47 { havoc() } 
- s51->s55 { havoc() } 
- s53->s55 { j >= dim and havoc() } 
- s53->s58 { j < dim and havoc() } 
- s55->sinter3 { havoc() } 
- s58->s62 { j' = j+1 and havoc(j) } 
- s6->s9 { havoc() } 
- s60->s58 { havoc() } 
- s62->s9 { havoc() } 
- s7->s10 { havoc() } 
- s9->s11 { havoc() } 
- sinit->s0 { havoc() } 
- sinter0->s30 { error_() and havoc() } 
- sinter1->s40 { error_() and havoc() } 
- sinter2->s50 { error_() and havoc() } 
- sinter3->s60 { error_() and havoc() }
-}
 LU_factor{
 in M,validity__M_,N,validity__N_,offset__A_,validity__A_,offset__pivot_,validity__pivot_: int;
 
@@ -874,46 +816,6 @@ error s10,s100,s102,s105,s107,s109,s111,s112,s114,s117,s120,s122,s124,s126,s128,
  sinter83->s395 { error_() and havoc() } 
  sinter9->s42 { (t',validity__t_')=abs(_ndet_arg_0,-1) and havoc(t,validity__t_) }
 }
-LU_num_flops{
-in N,validity__N_: int;
-
-Nd,__retres: int;
-out ret_val_,validity__ret_val__: int;
-initial sinit;
-final s5;
-error s1,s3; 
- s0->s2 { Nd' = N and havoc(Nd) } 
- s2->s4 { __retres' = ((2*Nd)*Nd)*Nd-3 and havoc(__retres) } 
- s4->s5 { ret_val_' = __retres and havoc(ret_val_) } 
- sinit->s0 { havoc() }
-}
-NonDetInt{
-
-out ndet,validity_ndet_: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { havoc(ndet,validity_ndet_) }
-}
-__NdetValInRange{
-in lowerb,lbval,upperb,upbval: int;
-
-out ndval,ndvalid: int;
-initial sinit;
-final s1;
- 
- sinit->s1 { ndval' <=  upperb and ndval' >= lowerb and ndvalid' = 1 and havoc(ndval,ndvalid) }
-}
-__VERIFIER_nondet_int{
-
-out ndet,validity_ndet_: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { havoc(ndet,validity_ndet_) }
-}
 __assert_fail{
 in a,b,c,d,e,f,g,h: int;
 
@@ -921,15 +823,6 @@ initial sinit;
 final none;
 error s0; 
  sinit->s0 { havoc() }
-}
-__builtin_alloca{
-in x,val_x: int;
-
-out y,vx: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { y' = x and vx' = val_x and havoc(y,vx) }
 }
 abs{
 in x,val: int;
@@ -1002,16 +895,6 @@ error s1,s10,s12,s3,s5,s8;
  sinter5->s11 { init_arrF2(offset__A_,0,0,1,0,1,dim-1,-1,dim-1,-1) and havoc() } 
  sinter6->s13 { (__nts__naffected_ret_val_',validity____nts__naffected_ret_val__')=LU_factor(dim,-1,dim,-1,offset__A_,0,_ndet_arg_0,1) and havoc(__nts__naffected_ret_val_,validity____nts__naffected_ret_val__) }
 }
-memcpy{
-in dest_off,dest_val,src_off,srv_val,sizein,size_val: int;
-
-out ret_addr,valid_ret: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { ret_addr' = dest_off and valid_ret' = dest_val and havoc(ret_addr,valid_ret) }
-}
 new_Array2D_double{
 in M,validity__M_,N,validity__N_: int;
 
@@ -1061,34 +944,6 @@ error s1,s11,s12,s22,s24,s29,s3,s31,s33,s35,s42,s44,s46,s5;
  s9->s11 { offset__A_ = 0*4 and havoc() } 
  s9->s14 { offset__A_ != 0*4 and i' = 0 and havoc(i) } 
  sinit->s0 { havoc() }
-}
-printf{
-in a,b,c,d: int;
-
-out off,val: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { havoc(off,val) }
-}
-strlen{
-in ptr_off,ptr_valid: int;
-
-out len,valid_len: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { valid_len' = ptr_valid and havoc(valid_len,len) }
-}
-strstr{
-in a,b,c,d: int;
-
-out off,val: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { val' = b and havoc(off,val) }
 }
 
  

@@ -1,59 +1,5 @@
 nts __Veridyc_simple_veridyc_simlpe ; 
 validity__count_,count,validity__free_mem_,free_mem,validity__size_,size,validity__inp_,offset__inp_,validity__outp_,offset__outp_,validity__head_,offset__head_: int;
-NonDetInt{
-
-out ndet,validity_ndet_: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { havoc(ndet,validity_ndet_) }
-}
-__NdetValInRange{
-in lowerb,lbval,upperb,upbval: int;
-
-out ndval,ndvalid: int;
-initial sinit;
-final s1;
- 
- sinit->s1 { ndval' <=  upperb and ndval' >= lowerb and ndvalid' = 1 and havoc(ndval,ndvalid) }
-}
-__VERIFIER_nondet_int{
-
-out ndet,validity_ndet_: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { havoc(ndet,validity_ndet_) }
-}
-__assert_fail{
-in a,b,c,d,e,f,g,h: int;
-
-initial sinit;
-final none;
-error s0; 
- sinit->s0 { havoc() }
-}
-__builtin_alloca{
-in x,val_x: int;
-
-out y,vx: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { y' = x and vx' = val_x and havoc(y,vx) }
-}
-abs{
-in x,val: int;
-
-out y,val_y: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { x >= 0 and y' = x and val_y' = val and havoc(y,val_y) } 
- sinit->sfinal { x < 0 and y' = -x and val_y' = val and havoc(y,val_y) }
-}
 main{
 
 size_mem,tmp,offset__line_,size_mem_0,tmp_2,offset__data_,s,offset__tmp_3_,offset__data_0_,size_entry,s_0,offset__tmp_4_,offset__tmp_5_,__retres,_ndet_arg_0,validity__tmp_5_,validity__tmp_4_,validity__tmp_3_,validity__tmp_2_,validity__size_entry_,validity__line_,validity__data_0_,validity__data_,validity____nts__naffected_ret_val__,__nts__naffected_ret_val_,mid_1_size,mid_1_base,mid_2_size,mid_2_base,mid_3_size,mid_3_base,mid_4_size,mid_4_base,mid_6_size,mid_6_base,mid_8_size,mid_8_base,mid_9_size,mid_9_base,mid_10_size,mid_10_base,mid_11_size,mid_11_base,mid_13_size,mid_13_base,mid_15_size,mid_15_base: int;

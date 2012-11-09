@@ -1,32 +1,5 @@
 nts __IntDualyzer_mergesort ; 
 validity__dim_,dim: int;
-NonDetInt{
-
-out ndet,validity_ndet_: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { havoc(ndet,validity_ndet_) }
-}
-__NdetValInRange{
-in lowerb,lbval,upperb,upbval: int;
-
-out ndval,ndvalid: int;
-initial sinit;
-final s1;
- 
- sinit->s1 { ndval' <=  upperb and ndval' >= lowerb and ndvalid' = 1 and havoc(ndval,ndvalid) }
-}
-__VERIFIER_nondet_int{
-
-out ndet,validity_ndet_: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { havoc(ndet,validity_ndet_) }
-}
 __assert_fail{
 in a,b,c,d,e,f,g,h: int;
 
@@ -43,16 +16,6 @@ initial sinit;
 final sfinal;
  
  sinit->sfinal { y' = x and vx' = val_x and havoc(y,vx) }
-}
-abs{
-in x,val: int;
-
-out y,val_y: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { x >= 0 and y' = x and val_y' = val and havoc(y,val_y) } 
- sinit->sfinal { x < 0 and y' = -x and val_y' = val and havoc(y,val_y) }
 }
 copyseq{
 in offset__a_,validity__a_,offset__t_,validity__t_,i,validity__i_,j,validity__j_,k,validity__k_: int;
@@ -127,16 +90,6 @@ error s1,s11,s13,s15,s17,s19,s21,s23,s3,s5,s7,s9;
  s8->s9 { not (4 < 10 and 4 >= 0) and havoc() } 
  sinit->s0 { mid_1_size' = 10*4 and mid_2_size' = 10*4 and havoc() } 
  sinter0->s22 { msort(_ndet_arg_0,1,0,1,dim-1,-1) and havoc() }
-}
-memcpy{
-in dest_off,dest_val,src_off,srv_val,sizein,size_val: int;
-
-out ret_addr,valid_ret: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { ret_addr' = dest_off and valid_ret' = dest_val and havoc(ret_addr,valid_ret) }
 }
 merge{
 in offset__a_,validity__a_,i,validity__i_,iu,validity__iu_,ju,validity__ju_: int;
@@ -261,34 +214,6 @@ error s11,s3,s4,s7,s9;
  sinter0->s8 { msort(offset__a_,-1,i,-1,m,-1) and havoc() } 
  sinter1->s10 { msort(offset__a_,-1,m+1,-1,j,-1) and havoc() } 
  sinter2->s12 { merge(offset__a_,-1,i,-1,m,-1,j,-1) and havoc() }
-}
-printf{
-in a,b,c,d: int;
-
-out off,val: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { havoc(off,val) }
-}
-strlen{
-in ptr_off,ptr_valid: int;
-
-out len,valid_len: int;
-initial sinit;
-final s1;
- 
- s0->s1 { havoc() } 
- sinit->s0 { valid_len' = ptr_valid and havoc(valid_len,len) }
-}
-strstr{
-in a,b,c,d: int;
-
-out off,val: int;
-initial sinit;
-final sfinal;
- 
- sinit->sfinal { val' = b and havoc(off,val) }
 }
 
  
