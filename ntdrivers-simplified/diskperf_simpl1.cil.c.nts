@@ -13,7 +13,7 @@ error s2,s4,s6;
  s3->sinter0 { havoc() } 
  s5->s7 { __retres' = 0 and havoc(__retres) } 
  s7->s8 { ret_val_' = __retres and havoc(ret_val_) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s5 { IofCompleteRequest(Irp,-1,0,1) and havoc() }
 }
 DiskPerfDeviceControl{
@@ -71,7 +71,7 @@ error s1,s10,s14,s16,s17,s19,s21,s23,s26,s3,s30,s31,s33,s35,s37,s39,s41,s43,s45,
  s71->s73 { Irp__IoStatus__Information' = sizeof__DISK_PERFORMANCE and havoc(Irp__IoStatus__Information) } 
  s73->s28 { havoc() } 
  s9->s11 { __cil_tmp26' = 458784 and havoc(__cil_tmp26) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s34 { (tmp',validity__tmp_')=IofCallDriver(deviceExtension__TargetDeviceObject,0,Irp,-1) and havoc(tmp,validity__tmp_) } 
  sinter1->s50 { IofCompleteRequest(Irp,-1,0,1) and havoc() } 
  sinter2->s52 { IofCompleteRequest(Irp,-1,0,1) and havoc() }
@@ -105,7 +105,7 @@ error s1,s10,s12,s13,s18,s20,s24,s26,s5,s7;
  s6->s9 { irpSp__MinorFunction = 2 and havoc() } 
  s8->sinter0 { havoc() } 
  s9->s15 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s14 { (status',validity__status_')=DiskPerfStartDevice(DeviceObject,-1,Irp,-1) and havoc(status,validity__status_) } 
  sinter1->s19 { (status',validity__status_')=DiskPerfRemoveDevice(DeviceObject,-1,Irp,-1) and havoc(status,validity__status_) } 
  sinter2->s21 { (tmp',validity__tmp_')=DiskPerfSendToNextDriver(DeviceObject,-1,Irp,-1) and havoc(tmp,validity__tmp_) }
@@ -129,7 +129,7 @@ error s11,s13,s2,s4,s7,s9;
  s5->s6 { havoc() } 
  s6->s8 { Irp__CurrentLocation' = Irp__CurrentLocation+1 and havoc(Irp__CurrentLocation) } 
  s8->s10 { Irp__Tail__Overlay__CurrentStackLocation' = Irp__Tail__Overlay__CurrentStackLocation+1 and havoc(Irp__Tail__Overlay__CurrentStackLocation) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s5 { errorFn() and havoc() } 
  sinter1->s5 { errorFn() and havoc() } 
  sinter2->s14 { (tmp',validity__tmp_')=PoCallDriver(deviceExtension__TargetDeviceObject,0,Irp,-1) and havoc(tmp,validity__tmp_) }
@@ -168,7 +168,7 @@ error s1,s10,s13,s15,s17,s19,s21,s23,s25,s27,s3,s30,s33,s36,s37,s5,s7;
  s9->s12 { s = NP and havoc() } 
  s9->sinter0 { s != NP and havoc() } 
  s9->sinter1 { s != NP and havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s11 { errorFn() and havoc() } 
  sinter1->s11 { errorFn() and havoc() } 
  sinter2->s16 { errorFn() and havoc() } 
@@ -210,7 +210,7 @@ error s11,s12,s14,s16,s18,s2,s20,s22,s25,s28,s30,s31,s33,s35,s5,s8;
  s4->s7 { havoc() } 
  s6->s9 { ret_val_' = __retres and havoc(ret_val_) } 
  s7->s10 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s36 { errorFn() and havoc() } 
  sinter1->s36 { errorFn() and havoc() }
 }
@@ -227,7 +227,7 @@ error s2,s4,s6;
  s3->sinter0 { havoc() } 
  s5->s7 { __retres' = -1073741802 and havoc(__retres) } 
  s7->s8 { ret_val_' = __retres and havoc(ret_val_) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s5 { (__nts__naffected_ret_val_',validity____nts__naffected_ret_val__')=KeSetEvent(Event,-1,0,1,0,1) and havoc(__nts__naffected_ret_val_,validity____nts__naffected_ret_val__) }
 }
 DiskPerfRegisterDevice{
@@ -341,7 +341,7 @@ error s10,s101,s103,s105,s109,s112,s113,s116,s118,s12,s121,s125,s127,s131,s133,s
  s94->s98 { __cil_tmp35' = 5636096 and havoc(__cil_tmp35) } 
  s96->s100 { __cil_tmp31' = 5046280 and havoc(__cil_tmp31) } 
  s98->s102 { __cil_tmp36' = 5636124 and havoc(__cil_tmp36) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s104 { (irp',validity__irp_')=IoBuildDeviceIoControlRequest(__cil_tmp31,1,deviceExtension__TargetDeviceObject,0,0,1,0,1,output,0,outputSize,0,0,1,event,0,ioStatus,0) and havoc(irp,validity__irp_) } 
  sinter1->s106 { (irp',validity__irp_')=IoBuildDeviceIoControlRequest(__cil_tmp36,1,deviceExtension__TargetDeviceObject,0,0,1,0,1,volumeNumber,0,sizeof__VOLUME_NUMBER,0,0,1,event,0,ioStatus,0) and havoc(irp,validity__irp_) } 
  sinter10->s61 { (status',validity__status_')=IofCallDriver(deviceExtension__TargetDeviceObject,0,irp,0) and havoc(status,validity__status_) } 
@@ -371,7 +371,7 @@ error s10,s12,s2,s4,s6,s8;
  s5->sinter0 { havoc() } 
  s7->s9 { Irp__IoStatus__Status' = status and havoc(Irp__IoStatus__Status) } 
  s9->s11 { myStatus' = status and havoc(myStatus) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s7 { (status',validity__status_')=DiskPerfForwardIrpSynchronous(DeviceObject,-1,Irp,-1) and havoc(status,validity__status_) } 
  sinter1->s13 { IofCompleteRequest(Irp,-1,0,1) and havoc() }
 }
@@ -394,7 +394,7 @@ error s11,s13,s2,s4,s7,s9;
  s5->s6 { havoc() } 
  s6->s8 { Irp__CurrentLocation' = Irp__CurrentLocation+1 and havoc(Irp__CurrentLocation) } 
  s8->s10 { Irp__Tail__Overlay__CurrentStackLocation' = Irp__Tail__Overlay__CurrentStackLocation+1 and havoc(Irp__Tail__Overlay__CurrentStackLocation) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s5 { errorFn() and havoc() } 
  sinter1->s5 { errorFn() and havoc() } 
  sinter2->s14 { (tmp',validity__tmp_')=IofCallDriver(deviceExtension__TargetDeviceObject,0,Irp,-1) and havoc(tmp,validity__tmp_) }
@@ -413,7 +413,7 @@ error s2,s4,s6,s8;
  s5->s7 { Irp__Tail__Overlay__CurrentStackLocation' = Irp__Tail__Overlay__CurrentStackLocation+1 and havoc(Irp__Tail__Overlay__CurrentStackLocation) } 
  s7->sinter0 { havoc() } 
  s9->s10 { ret_val_' = tmp and havoc(ret_val_) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s9 { (tmp',validity__tmp_')=IofCallDriver(deviceExtension__TargetDeviceObject,0,Irp,-1) and havoc(tmp,validity__tmp_) }
 }
 DiskPerfStartDevice{
@@ -433,7 +433,7 @@ error s10,s12,s14,s2,s4,s6,s8;
  s5->sinter1 { havoc() } 
  s7->sinter2 { havoc() } 
  s9->s11 { Irp__IoStatus__Status' = status and havoc(Irp__IoStatus__Status) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s5 { (status',validity__status_')=DiskPerfForwardIrpSynchronous(DeviceObject,-1,Irp,-1) and havoc(status,validity__status_) } 
  sinter1->s7 { DiskPerfSyncFilterWithTarget(DeviceObject,-1,deviceExtension__TargetDeviceObject,0) and havoc() } 
  sinter2->s9 { (__nts__naffected_ret_val_',validity____nts__naffected_ret_val__')=DiskPerfRegisterDevice(DeviceObject,-1) and havoc(__nts__naffected_ret_val_,validity____nts__naffected_ret_val__) } 
@@ -446,7 +446,7 @@ initial sinit;
 final s1;
  
  s0->s1 { havoc() } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 DiskPerfUnload{
 in DriverObject,validity__DriverObject_: int;
@@ -455,7 +455,7 @@ initial sinit;
 final s1;
  
  s0->s1 { havoc() } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 IoBuildDeviceIoControlRequest{
 in IoControlCode,validity__IoControlCode_,DeviceObject,validity__DeviceObject_,InputBuffer,validity__InputBuffer_,InputBufferLength,validity__InputBufferLength_,OutputBuffer,validity__OutputBuffer_,OutputBufferLength,validity__OutputBufferLength_,InternalDeviceIoControl,validity__InternalDeviceIoControl_,Event,validity__Event_,IoStatusBlock,validity__IoStatusBlock_: int;
@@ -478,7 +478,7 @@ error s1,s12,s14,s3,s7,s9;
  s5->s8 { tmp_ndt_7 != 0 and havoc() } 
  s6->s10 { havoc() } 
  s8->s11 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s4 { (tmp_ndt_7',validity__tmp_ndt_7_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_7,validity__tmp_ndt_7_) }
 }
 IofCallDriver{
@@ -536,7 +536,7 @@ error s13,s14,s16,s18,s24,s26,s27,s3,s30,s32,s37,s4,s40,s41,s44,s46,s48,s50,s52,
  s61->s47 { ret_val_' = returnVal2 and havoc(ret_val_) } 
  s7->s11 { havoc() } 
  s9->s11 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s5 { (tmp_ndt_8',validity__tmp_ndt_8_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_8,validity__tmp_ndt_8_) } 
  sinter1->s7 { (compRetStatus',validity__compRetStatus_')=DiskPerfIrpCompletion(DeviceObject,-1,Irp,-1,lcontext,0) and havoc(compRetStatus,validity__compRetStatus_) } 
  sinter2->s9 { (compRetStatus',validity__compRetStatus_')=DiskPerfIoCompletion(DeviceObject,-1,Irp,-1,lcontext,0) and havoc(compRetStatus,validity__compRetStatus_) } 
@@ -560,7 +560,7 @@ error s2,s4;
  s1->sinter1 { s != NP and havoc() } 
  s3->s6 { havoc() } 
  s5->s6 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s5 { errorFn() and havoc() } 
  sinter1->s5 { errorFn() and havoc() }
 }
@@ -574,7 +574,7 @@ final s3;
 error s1; 
  s0->s2 { setEventCalled' = 1 and havoc(setEventCalled) } 
  s2->s3 { ret_val_' = l and havoc(ret_val_) } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 KeWaitForSingleObject{
 in Object,validity__Object_,WaitReason,validity__WaitReason_,WaitMode,validity__WaitMode_,Alertable,validity__Alertable_,Timeout,validity__Timeout_: int;
@@ -612,7 +612,7 @@ error s11,s13,s16,s17,s19,s21,s25,s27,s3,s30,s32,s5,s6,s9;
  s4->s10 { havoc() } 
  s7->s12 { setEventCalled' = 0 and havoc(setEventCalled) } 
  s8->s4 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s18 { (tmp_ndt_10',validity__tmp_ndt_10_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_10,validity__tmp_ndt_10_) } 
  sinter1->s18 { (tmp_ndt_10',validity__tmp_ndt_10_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_10,validity__tmp_ndt_10_) } 
  sinter2->s22 { errorFn() and havoc() } 
@@ -687,7 +687,7 @@ error s12,s14,s16,s17,s19,s21,s27,s29,s3,s30,s33,s35,s4,s40,s43,s44,s46,s49,s52,
  s7->s11 { havoc() } 
  s8->s11 { routine != 1 and havoc() } 
  s8->sinter2 { routine = 1 and havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s5 { (tmp_ndt_11',validity__tmp_ndt_11_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_11,validity__tmp_ndt_11_) } 
  sinter1->s7 { (compRetStatus',validity__compRetStatus_')=DiskPerfIrpCompletion(DeviceObject,-1,Irp,-1,lcontext,0) and havoc(compRetStatus,validity__compRetStatus_) } 
  sinter2->s13 { (compRetStatus',validity__compRetStatus_')=DiskPerfIoCompletion(DeviceObject,-1,Irp,-1,lcontext,0) and havoc(compRetStatus,validity__compRetStatus_) } 
@@ -720,7 +720,7 @@ error s1,s11,s13,s15,s17,s19,s21,s23,s25,s27,s29,s3,s5,s7,s9;
  s4->s6 { DC' = 2 and havoc(DC) } 
  s6->s8 { SKIP1' = 3 and havoc(SKIP1) } 
  s8->s10 { SKIP2' = 4 and havoc(SKIP2) } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 __NdetValInRange{
 in lowerb,lbval,upperb,upbval: int;
@@ -773,7 +773,7 @@ initial sinit;
 final no_rechable_final_state;
 error s1; 
  s0->s1 { havoc() } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 main{
 
@@ -919,7 +919,7 @@ error s1,s100,s103,s106,s108,s11,s110,s111,s114,s115,s118,s120,s121,s123,s125,s1
  s97->sinter0 { s != DC and havoc() } 
  s97->sinter1 { s != DC and havoc() } 
  s99->s93 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s104 { errorFn() and havoc() } 
  sinter1->s104 { errorFn() and havoc() } 
  sinter10->s140 { (tmp_ndt_2',validity__tmp_ndt_2_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_2,validity__tmp_ndt_2_) } 
@@ -992,7 +992,7 @@ error s2,s4;
  s1->sinter1 { s != NP and havoc() } 
  s3->s6 { havoc() } 
  s5->s6 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s5 { errorFn() and havoc() } 
  sinter1->s5 { errorFn() and havoc() }
 }
@@ -1009,7 +1009,7 @@ error s1,s11,s13,s3,s5,s7,s9;
  s4->s6 { setEventCalled' = customIrp and havoc(setEventCalled) } 
  s6->s8 { lowerDriverReturn' = setEventCalled and havoc(lowerDriverReturn) } 
  s8->s10 { compRegistered' = lowerDriverReturn and havoc(compRegistered) } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 
  

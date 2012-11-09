@@ -63,7 +63,7 @@ final s3;
 error s1; 
  s0->s2 { __retres' = a+b and havoc(__retres) } 
  s2->s3 { ret_val_' = __retres and havoc(ret_val_) } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 main{
 
@@ -93,7 +93,7 @@ error s1,s10,s12,s5;
  s8->s13 { val <=  1 and __retres' = 1 and havoc(__retres) } 
  s9->s14 { val > 1 and __retres' = 0 and havoc(__retres) } 
  s9->s15 { val <=  1 and __retres' = 1 and havoc(__retres) } 
- sinit->s0 { mid_1_size' = 5*4 and mid_3_size' = 5*4 } 
+ sinit->s0 { mid_1_size' = 5*4 and mid_3_size' = 5*4 and havoc() } 
  sinter0->s6 { (val',validity__val_')=iplus(_ndet_arg_0,0,_ndet_arg_1,0) and havoc(val,validity__val_) } 
  sinter1->s7 { (val',validity__val_')=iplus(_ndet_arg_0,0,_ndet_arg_1,0) and havoc(val,validity__val_) }
 }

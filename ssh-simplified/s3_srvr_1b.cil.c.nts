@@ -124,7 +124,7 @@ error s1,s11,s12,s13,s16,s18,s21,s23,s25,s28,s3,s30,s31,s34,s38,s40,s41,s43,s45,
  s81->s84 { havoc() } 
  s82->s52 { __retres' = -1 and havoc(__retres) } 
  s84->s61 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s26 { (tmp___1',validity__tmp___1_')=__VERIFIER_nondet_int() and havoc(tmp___1,validity__tmp___1_) }
 }
 memcpy{

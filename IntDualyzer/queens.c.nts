@@ -61,7 +61,7 @@ initial sinit;
 final no_rechable_final_state;
 error s1,s2; 
  s0->sinter0 { havoc(_ndet_arg_1,_ndet_arg_2) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s2 { __assert_fail(_ndet_arg_0,1,_ndet_arg_1,1,8,1,_ndet_arg_2,1) and havoc() }
 }
 loopQ{
@@ -121,7 +121,7 @@ error s12,s13,s15,s19,s21,s23,s25,s27,s29,s3,s31,s32,s35,s36,s38,s41,s43,s46,s47
  s61->s10 { havoc() } 
  s8->s11 { i >= dim and havoc() } 
  s8->s14 { i < dim and havoc(next) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s16 { error_() and havoc() } 
  sinter1->s39 { error_() and havoc() } 
  sinter10->s58 { loopQ(i+1,-1,size,-1,offset__board_,-1) and havoc() } 
@@ -161,7 +161,7 @@ error s1,s11,s13,s15,s17,s19,s3,s5,s7,s9;
  s6->s8 { 3 < 8 and 3 >= 0 and havoc() } 
  s8->s10 { 4 < 8 and 4 >= 0 and havoc() } 
  s8->s9 { not (4 < 8 and 4 >= 0) and havoc() } 
- sinit->s0 { mid_1_size' = 8*4 and mid_2_size' = 8*4 } 
+ sinit->s0 { mid_1_size' = 8*4 and mid_2_size' = 8*4 and havoc() } 
  sinter0->s18 { queens(_ndet_arg_0,1,dim,-1) and havoc() }
 }
 memcpy{
@@ -191,7 +191,7 @@ final s3;
 error s1; 
  s0->sinter0 { havoc() } 
  s2->s3 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s2 { loopQ(0,1,size,-1,offset__board_,-1) and havoc() }
 }
 strlen{
@@ -249,7 +249,7 @@ error s10,s13,s14,s16,s18,s2,s21,s24,s26,s30,s32,s35,s5,s8;
  s7->s12 { havoc() } 
  s9->s12 { j >= dim and havoc() } 
  s9->s15 { j < dim and havoc(qj) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s17 { error_() and havoc() } 
  sinter1->s27 { (tmp_0',validity__tmp_0_')=abs(qi-qj,-1) and havoc(tmp_0,validity__tmp_0_) } 
  sinter2->s33 { (tmp',validity__tmp_')=test(j+1,-1,i,-1,qi,-1,offset__board_,-1) and havoc(tmp,validity__tmp_) }

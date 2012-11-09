@@ -10,7 +10,7 @@ final s3;
 error s1; 
  s0->s2 { __retres' = 0 and havoc(__retres) } 
  s2->s3 { ret_val_' = __retres and havoc(ret_val_) } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 FlFdcDeviceIo{
 in DeviceObject,validity__DeviceObject_,Ioctl,validity__Ioctl_,Data,validity__Data_: int;
@@ -38,7 +38,7 @@ error s10,s13,s15,s18,s2,s21,s23,s25,s5,s8;
  s6->s9 { havoc() } 
  s7->s11 { irpStack' = irp__Tail__Overlay__CurrentStackLocation-1 and havoc(irpStack) } 
  s9->s12 { ret_val_' = __retres and havoc(ret_val_) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s3 { (irp',validity__irp_')=IoBuildDeviceIoControlRequest(Ioctl,-1,DeviceObject,-1,0,1,0,1,0,1,0,1,1,1,doneEvent,0,ioStatus,0) and havoc(irp,validity__irp_) } 
  sinter1->s16 { (ntStatus',validity__ntStatus_')=IofCallDriver(DeviceObject,-1,irp,0) and havoc(ntStatus,validity__ntStatus_) } 
  sinter2->s22 { (__nts__naffected_ret_val_',validity____nts__naffected_ret_val__')=KeWaitForSingleObject(doneEvent,0,Suspended,-1,KernelMode,-1,0,1,0,1) and havoc(__nts__naffected_ret_val_,validity____nts__naffected_ret_val__) }
@@ -89,7 +89,7 @@ error s11,s14,s15,s17,s19,s2,s21,s25,s29,s30,s34,s37,s38,s4,s40,s43,s45,s50,s6,s
  s7->s10 { Irp__IoStatus__Information' = 0 and havoc(Irp__IoStatus__Information) } 
  s8->s12 { DisketteExtension__ThreadReferenceCount = 0 and DisketteExtension__ThreadReferenceCount' = DisketteExtension__ThreadReferenceCount+1 and havoc(DisketteExtension__ThreadReferenceCount) } 
  s8->s13 { DisketteExtension__ThreadReferenceCount != 0 and havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s22 { errorFn() and havoc() } 
  sinter1->s22 { errorFn() and havoc() } 
  sinter2->s31 { (status',validity__status_')=PsCreateSystemThread(threadHandle,0,0,1,ObjAttributes,0,0,1,0,1,FloppyThread,-1,DisketteExtension,-1) and havoc(status,validity__status_) } 
@@ -283,7 +283,7 @@ error s1,s100,s102,s104,s106,s109,s111,s114,s117,s119,s12,s121,s123,s126,s128,s1
  s96->s108 { havoc() } 
  s98->s110 { Irp__Tail__Overlay__CurrentStackLocation' = Irp__Tail__Overlay__CurrentStackLocation+1 and havoc(Irp__Tail__Overlay__CurrentStackLocation) } 
  s99->s112 { __cil_tmp29' = ntStatus and havoc(__cil_tmp29) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s122 { errorFn() and havoc() } 
  sinter1->s122 { errorFn() and havoc() } 
  sinter10->s224 { (ntStatus',validity__ntStatus_')=IofCallDriver(disketteExtension__TargetObject,0,Irp,-1) and havoc(ntStatus,validity__ntStatus_) } 
@@ -329,7 +329,7 @@ error s2,s4;
  s1->sinter0 { havoc() } 
  s3->s5 { __retres' = -1073741802 and havoc(__retres) } 
  s5->s6 { ret_val_' = __retres and havoc(ret_val_) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s3 { (__nts__naffected_ret_val_',validity____nts__naffected_ret_val__')=KeSetEvent(Context,-1,1,1,0,1) and havoc(__nts__naffected_ret_val_,validity____nts__naffected_ret_val__) }
 }
 FloppyProcessQueuedRequests{
@@ -339,7 +339,7 @@ initial sinit;
 final s1;
  
  s0->s1 { havoc() } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 FloppyStartDevice{
 in DeviceObject,validity__DeviceObject_,Irp,validity__Irp_: int;
@@ -435,7 +435,7 @@ error s1,s102,s105,s107,s11,s110,s112,s114,s116,s118,s122,s123,s13,s16,s19,s21,s
  s96->s100 { havoc() } 
  s98->s100 { havoc() } 
  s99->s101 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s103 { (pnpStatus',validity__pnpStatus_')=IoRegisterDeviceInterface(disketteExtension__UnderlyingPDO,0,MOUNTDEV_MOUNTED_DEVICE_GUID,-1,0,1,disketteExtension__InterfaceString,0) and havoc(pnpStatus,validity__pnpStatus_) } 
  sinter1->s113 { (pnpStatus',validity__pnpStatus_')=IoSetDeviceInterfaceState(disketteExtension__InterfaceString,0,1,1) and havoc(pnpStatus,validity__pnpStatus_) } 
  sinter10->s77 { IofCompleteRequest(Irp,-1,0,1) and havoc() } 
@@ -471,7 +471,7 @@ error s1,s10,s14,s3,s7,s9;
  s5->s8 { tmp_ndt_2 != 0 and havoc() } 
  s6->s11 { __retres' = malloc and havoc(__retres) } 
  s8->s12 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s4 { (tmp_ndt_2',validity__tmp_ndt_2_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_2,validity__tmp_ndt_2_) }
 }
 IoDeleteSymbolicLink{
@@ -493,7 +493,7 @@ error s1,s12,s5,s7,s8;
  s4->s9 { __retres' = 0 and havoc(__retres) } 
  s6->s10 { havoc() } 
  s9->s11 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s2 { (tmp_ndt_3',validity__tmp_ndt_3_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_3,validity__tmp_ndt_3_) }
 }
 IoQueryDeviceDescription{
@@ -515,7 +515,7 @@ error s1,s12,s5,s7,s8;
  s4->s9 { __retres' = 0 and havoc(__retres) } 
  s6->s10 { havoc() } 
  s9->s11 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s2 { (tmp_ndt_4',validity__tmp_ndt_4_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_4,validity__tmp_ndt_4_) }
 }
 IoRegisterDeviceInterface{
@@ -537,7 +537,7 @@ error s1,s12,s5,s7,s8;
  s4->s9 { __retres' = 0 and havoc(__retres) } 
  s6->s10 { havoc() } 
  s9->s11 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s2 { (tmp_ndt_5',validity__tmp_ndt_5_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_5,validity__tmp_ndt_5_) }
 }
 IoSetDeviceInterfaceState{
@@ -559,7 +559,7 @@ error s1,s12,s5,s7,s8;
  s4->s9 { __retres' = 0 and havoc(__retres) } 
  s6->s10 { havoc() } 
  s9->s11 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s2 { (tmp_ndt_6',validity__tmp_ndt_6_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_6,validity__tmp_ndt_6_) }
 }
 IofCallDriver{
@@ -615,7 +615,7 @@ error s11,s12,s14,s16,s22,s24,s25,s28,s3,s30,s35,s38,s39,s4,s42,s44,s46,s48,s50,
  s8->s10 { tmp_ndt_12 = 0 and havoc() } 
  s8->sinter2 { tmp_ndt_12 != 0 and havoc() } 
  s9->s15 { __cil_tmp7' = compRetStatus1 and havoc(__cil_tmp7) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s5 { (tmp_ndt_12',validity__tmp_ndt_12_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_12,validity__tmp_ndt_12_) } 
  sinter1->s7 { (compRetStatus1',validity__compRetStatus1_')=FloppyPnpComplete(DeviceObject,-1,Irp,-1,lcontext,0) and havoc(compRetStatus1,validity__compRetStatus1_) } 
  sinter2->s13 { (tmp_ndt_7',validity__tmp_ndt_7_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_7,validity__tmp_ndt_7_) } 
@@ -638,7 +638,7 @@ error s2,s4;
  s1->sinter1 { s != NP and havoc() } 
  s3->s6 { havoc() } 
  s5->s6 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s5 { errorFn() and havoc() } 
  sinter1->s5 { errorFn() and havoc() }
 }
@@ -652,7 +652,7 @@ final s3;
 error s1; 
  s0->s2 { setEventCalled' = 1 and havoc(setEventCalled) } 
  s2->s3 { ret_val_' = l and havoc(ret_val_) } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 KeWaitForSingleObject{
 in Object,validity__Object_,WaitReason,validity__WaitReason_,WaitMode,validity__WaitMode_,Alertable,validity__Alertable_,Timeout,validity__Timeout_: int;
@@ -689,7 +689,7 @@ error s11,s13,s16,s17,s19,s21,s25,s27,s28,s3,s32,s5,s6,s9;
  s4->s10 { havoc() } 
  s7->s12 { setEventCalled' = 0 and havoc(setEventCalled) } 
  s8->s4 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s18 { (tmp_ndt_8',validity__tmp_ndt_8_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_8,validity__tmp_ndt_8_) } 
  sinter1->s18 { (tmp_ndt_8',validity__tmp_ndt_8_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_8,validity__tmp_ndt_8_) } 
  sinter2->s22 { errorFn() and havoc() } 
@@ -725,7 +725,7 @@ error s1,s12,s5,s7,s8;
  s4->s9 { __retres' = 0 and havoc(__retres) } 
  s6->s10 { havoc() } 
  s9->s11 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s2 { (tmp_ndt_9',validity__tmp_ndt_9_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_9,validity__tmp_ndt_9_) }
 }
 PsCreateSystemThread{
@@ -747,7 +747,7 @@ error s1,s12,s5,s7,s8;
  s4->s9 { __retres' = 0 and havoc(__retres) } 
  s6->s10 { havoc() } 
  s9->s11 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s2 { (tmp_ndt_10',validity__tmp_ndt_10_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_10,validity__tmp_ndt_10_) }
 }
 ZwClose{
@@ -769,7 +769,7 @@ error s1,s12,s5,s7,s8;
  s4->s9 { __retres' = 0 and havoc(__retres) } 
  s6->s10 { havoc() } 
  s9->s11 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s2 { (tmp_ndt_11',validity__tmp_ndt_11_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_11,validity__tmp_ndt_11_) }
 }
 _BLAST_init{
@@ -792,7 +792,7 @@ error s1,s11,s13,s15,s17,s19,s21,s23,s25,s27,s3,s5,s7,s9;
  s4->s6 { DC' = 2 and havoc(DC) } 
  s6->s8 { SKIP1' = 3 and havoc(SKIP1) } 
  s8->s10 { SKIP2' = 4 and havoc(SKIP2) } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 __NdetValInRange{
 in lowerb,lbval,upperb,upbval: int;
@@ -845,7 +845,7 @@ initial sinit;
 final no_rechable_final_state;
 error s1; 
  s0->s1 { havoc() } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 main{
 
@@ -964,7 +964,7 @@ error s1,s100,s101,s104,s106,s109,s11,s111,s113,s116,s117,s120,s122,s124,s125,s1
  s98->s102 { myStatus' = 0 and havoc(myStatus) } 
  s99->s103 { s != SKIP2 and havoc() } 
  s99->s105 { s = SKIP2 and havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s118 { errorFn() and havoc() } 
  sinter1->s118 { errorFn() and havoc() } 
  sinter10->s154 { (status',validity__status_')=FloppyPnp(devobj,0,pirp,0) and havoc(status,validity__status_) } 
@@ -1027,7 +1027,7 @@ error s2,s4;
  s1->sinter1 { s != NP and havoc() } 
  s3->s6 { havoc() } 
  s5->s6 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s5 { errorFn() and havoc() } 
  sinter1->s5 { errorFn() and havoc() }
 }
@@ -1043,7 +1043,7 @@ error s1,s11,s3,s5,s7,s9;
  s4->s6 { compRegistered' = 0 and havoc(compRegistered) } 
  s6->s8 { lowerDriverReturn' = 0 and havoc(lowerDriverReturn) } 
  s8->s10 { setEventCalled' = 0 and havoc(setEventCalled) } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 uninf1{
 
@@ -1054,7 +1054,7 @@ final s3;
 error s1; 
  s0->sinter0 { havoc() } 
  s2->s3 { ret_val_' = tmp and havoc(ret_val_) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s2 { (tmp',validity__tmp_')=__VERIFIER_nondet_int() and havoc(tmp,validity__tmp_) }
 }
 

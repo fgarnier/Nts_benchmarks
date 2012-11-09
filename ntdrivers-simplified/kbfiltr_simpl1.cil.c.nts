@@ -48,7 +48,7 @@ error s11,s12,s14,s19,s21,s23,s25,s3,s30,s33,s34,s37,s39,s41,s43,s45,s47,s49,s5,
  s8->sinter3 { havoc() } 
  s9->s10 { tmp_ndt_2 = 0 and havoc() } 
  s9->sinter4 { tmp_ndt_2 != 0 and havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s4 { (compRetStatus',validity__compRetStatus_')=KbFilter_Complete(DeviceObject,-1,Irp,-1,lcontext,0) and havoc(compRetStatus,validity__compRetStatus_) } 
  sinter1->s6 { (tmp_ndt_2',validity__tmp_ndt_2_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_2,validity__tmp_ndt_2_) } 
  sinter2->s8 { stubMoreProcessingRequired() and havoc() } 
@@ -69,7 +69,7 @@ error s2,s4;
  s1->sinter1 { s != NP and havoc() } 
  s3->s6 { havoc() } 
  s5->s6 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s5 { errorFn() and havoc() } 
  sinter1->s5 { errorFn() and havoc() }
 }
@@ -86,7 +86,7 @@ error s2,s4,s6;
  s3->sinter0 { havoc() } 
  s5->s7 { __retres' = -1073741802 and havoc(__retres) } 
  s7->s8 { ret_val_' = __retres and havoc(ret_val_) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s5 { (__nts__naffected_ret_val_',validity____nts__naffected_ret_val__')=KeSetEvent(event,-1,0,1,0,1) and havoc(__nts__naffected_ret_val_,validity____nts__naffected_ret_val__) }
 }
 KbFilter_PnP{
@@ -234,7 +234,7 @@ error s1,s102,s104,s107,s109,s11,s112,s114,s117,s119,s12,s120,s126,s128,s131,s13
  s95->s41 { havoc() } 
  s97->s106 { irpStack__MinorFunction = 7 and havoc() } 
  s97->s108 { irpStack__MinorFunction != 7 and havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s115 { (status',validity__status_')=IofCallDriver(devExt__TopOfStack,0,Irp,-1) and havoc(status,validity__status_) } 
  sinter1->s39 { errorFn() and havoc() } 
  sinter10->s71 { errorFn() and havoc() } 
@@ -262,7 +262,7 @@ final s3;
 error s1; 
  s0->s2 { setEventCalled' = 1 and havoc(setEventCalled) } 
  s2->s3 { ret_val_' = l and havoc(ret_val_) } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 KeWaitForSingleObject{
 in Object,validity__Object_,WaitReason,validity__WaitReason_,WaitMode,validity__WaitMode_,Alertable,validity__Alertable_,Timeout,validity__Timeout_: int;
@@ -300,7 +300,7 @@ error s10,s12,s14,s17,s18,s20,s22,s26,s28,s29,s33,s4,s6,s7;
  s5->s11 { havoc() } 
  s8->s13 { setEventCalled' = 0 and havoc(setEventCalled) } 
  s9->s5 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s19 { (tmp_ndt_4',validity__tmp_ndt_4_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_4,validity__tmp_ndt_4_) } 
  sinter1->s19 { (tmp_ndt_4',validity__tmp_ndt_4_')=__VERIFIER_nondet_int() and havoc(tmp_ndt_4,validity__tmp_ndt_4_) } 
  sinter2->s23 { errorFn() and havoc() } 
@@ -338,7 +338,7 @@ error s1,s11,s13,s15,s17,s19,s21,s23,s25,s27,s29,s3,s5,s7,s9;
  s4->s6 { DC' = 2 and havoc(DC) } 
  s6->s8 { SKIP1' = 3 and havoc(SKIP1) } 
  s8->s10 { SKIP2' = 4 and havoc(SKIP2) } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 __NdetValInRange{
 in lowerb,lbval,upperb,upbval: int;
@@ -391,7 +391,7 @@ initial sinit;
 final no_rechable_final_state;
 error s1; 
  s0->s1 { havoc() } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 main{
 
@@ -498,7 +498,7 @@ error s10,s101,s103,s105,s107,s108,s110,s112,s115,s117,s12,s120,s122,s125,s127,s
  s97->s104 { pended = 1 and havoc() } 
  s97->s106 { pended != 1 and havoc() } 
  s99->s109 { myStatus' = -1073741637 and havoc(myStatus) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s111 { stub_driver_init() and havoc() } 
  sinter1->s113 { errorFn() and havoc() } 
  sinter2->s113 { errorFn() and havoc() } 
@@ -555,7 +555,7 @@ error s2,s4;
  s1->sinter1 { s != NP and havoc() } 
  s3->s6 { havoc() } 
  s5->s6 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s5 { errorFn() and havoc() } 
  sinter1->s5 { errorFn() and havoc() }
 }
@@ -572,7 +572,7 @@ error s1,s11,s13,s3,s5,s7,s9;
  s4->s6 { compFptr' = 0 and havoc(compFptr) } 
  s6->s8 { compRegistered' = 0 and havoc(compRegistered) } 
  s8->s10 { lowerDriverReturn' = 0 and havoc(lowerDriverReturn) } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 
  

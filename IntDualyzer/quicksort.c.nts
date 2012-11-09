@@ -86,7 +86,7 @@ error s11,s13,s16,s18,s19,s21,s23,s25,s28,s5,s7;
  s8->s10 { i < 0 and havoc() } 
  s8->s12 { i >= 0 and havoc() } 
  s9->s14 { ret_val_' = m and havoc(ret_val_) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s20 { error_() and havoc() } 
  sinter1->s22 { swap(offset__a_,-1,m+1,-1,i,-1) and havoc() } 
  sinter2->s22 { swap(offset__a_,-1,m+1,-1,i,-1) and havoc() }
@@ -98,7 +98,7 @@ initial sinit;
 final no_rechable_final_state;
 error s1,s2; 
  s0->sinter0 { havoc(_ndet_arg_1,_ndet_arg_2) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s2 { __assert_fail(_ndet_arg_0,1,_ndet_arg_1,1,9,1,_ndet_arg_2,1) and havoc() }
 }
 main{
@@ -131,7 +131,7 @@ error s1,s11,s13,s15,s17,s19,s21,s23,s3,s5,s7,s9;
  s6->s8 { 3 < 10 and 3 >= 0 and havoc() } 
  s8->s10 { 4 < 10 and 4 >= 0 and havoc() } 
  s8->s9 { not (4 < 10 and 4 >= 0) and havoc() } 
- sinit->s0 { mid_1_size' = 10*4 and mid_2_size' = 10*4 } 
+ sinit->s0 { mid_1_size' = 10*4 and mid_2_size' = 10*4 and havoc() } 
  sinter0->s22 { quick_sort(_ndet_arg_0,1,0,1,dim-1,-1) and havoc() }
 }
 memcpy{
@@ -164,7 +164,7 @@ error s10,s12,s14,s16,s3,s5,s7,s8;
  s4->s9 { l < dim and havoc(v) } 
  s6->sinter0 { havoc() } 
  s9->s13 { j' = l+1 and havoc(j) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s11 { error_() and havoc() } 
  sinter1->s15 { (m',validity__m_')=changeM(offset__a_,-1,l,-1,j,-1,h,-1,v,-1) and havoc(m,validity__m_) } 
  sinter2->s17 { swap(offset__a_,-1,l,-1,m,0) and havoc() }
@@ -191,7 +191,7 @@ error s2,s5,s6,s8;
  s3->sinter1 { havoc() } 
  s7->sinter2 { havoc() } 
  s9->s4 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s3 { (p',validity__p_')=partition(offset__a_,-1,l,-1,h,-1) and havoc(p,validity__p_) } 
  sinter1->s7 { quick_sort(offset__a_,-1,l,-1,p-1,0) and havoc() } 
  sinter2->s9 { quick_sort(offset__a_,-1,p+1,0,h,-1) and havoc() }
@@ -254,7 +254,7 @@ error s10,s14,s16,s18,s20,s21,s24,s26,s28,s29,s3,s31,s35,s37,s39,s40,s42,s5,s7,s
  s43->s41 { havoc() } 
  s6->sinter0 { havoc() } 
  s9->s12 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s11 { error_() and havoc() } 
  sinter1->s22 { error_() and havoc() } 
  sinter2->s32 { error_() and havoc() } 

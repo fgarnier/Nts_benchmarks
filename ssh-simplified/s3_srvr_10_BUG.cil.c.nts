@@ -64,7 +64,7 @@ error s2,s4;
  s1->s3 { s' = 8464 and havoc(s) } 
  s3->sinter0 { havoc() } 
  s5->s6 { ret_val_' = tmp and havoc(ret_val_) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s5 { (tmp',validity__tmp_')=ssl3_accept(s,1) and havoc(tmp,validity__tmp_) }
 }
 memcpy{
@@ -552,7 +552,7 @@ error s1,s101,s102,s104,s106,s109,s11,s111,s117,s119,s120,s122,s125,s126,s13,s13
  s94->s103 { __cil_tmp55' = s__version*8 and havoc(__cil_tmp55) } 
  s97->sinter11 { havoc() } 
  s98->s107 { s__state' = 3 and havoc(s__state) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s424 { (ret',validity__ret_')=__VERIFIER_nondet_int() and havoc(ret,validity__ret_) } 
  sinter1->s225 { (tmp___5',validity__tmp___5_')=__VERIFIER_nondet_int() and havoc(tmp___5,validity__tmp___5_) } 
  sinter10->s294 { (ret',validity__ret_')=__VERIFIER_nondet_int() and havoc(ret,validity__ret_) } 

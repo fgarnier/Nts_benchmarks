@@ -52,7 +52,7 @@ error s1,s14,s16,s20,s22,s23,s26,s28,s29,s32,s34,s36,s38,s39,s42,s44,s46,s48,s49
  s62->s9 { havoc() } 
  s7->s10 { havoc() } 
  s9->s11 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s30 { error_() and havoc() } 
  sinter1->s40 { error_() and havoc() } 
  sinter2->s50 { error_() and havoc() } 
@@ -788,7 +788,7 @@ error s10,s100,s102,s105,s107,s109,s111,s112,s114,s117,s120,s122,s124,s126,s128,
  s96->sinter24 { havoc() } 
  s98->s104 { j < 0 and havoc() } 
  s98->s106 { j >= 0 and havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s417 { error_() and havoc() } 
  sinter1->s422 { error_() and havoc() } 
  sinter10->s429 { (ab',validity__ab_')=abs(_ndet_arg_0,-1) and havoc(ab,validity__ab_) } 
@@ -885,7 +885,7 @@ error s1,s3;
  s0->s2 { Nd' = N and havoc(Nd) } 
  s2->s4 { __retres' = ((2*Nd)*Nd)*Nd-3 and havoc(__retres) } 
  s4->s5 { ret_val_' = __retres and havoc(ret_val_) } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 NonDetInt{
 
@@ -948,7 +948,7 @@ initial sinit;
 final no_rechable_final_state;
 error s1,s2; 
  s0->sinter0 { havoc(_ndet_arg_1,_ndet_arg_2) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s2 { __assert_fail(_ndet_arg_0,1,_ndet_arg_1,1,13,1,_ndet_arg_2,1) and havoc() }
 }
 init_arrF2{
@@ -974,7 +974,7 @@ error s12,s14,s17,s19,s21,s4,s6;
  s8->s10 { havoc() } 
  s9->s11 { j <=  m and havoc() } 
  s9->s13 { j > m and havoc() } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 main{
 
@@ -993,7 +993,7 @@ error s1,s10,s12,s3,s5,s8;
  s7->sinter3 { offset__A_ != 0*4 and havoc() } 
  s7->sinter4 { offset__A_ != 0*4 and havoc() } 
  s9->sinter5 { havoc() } 
- sinit->s0 { mid_1_size' = 10*4 and mid_2_size' = 10*4 } 
+ sinit->s0 { mid_1_size' = 10*4 and mid_2_size' = 10*4 and havoc() } 
  sinter0->s6 { (validity__A_',offset__A_')=new_Array2D_double(dim,-1,dim,-1) and havoc(validity__A_,offset__A_) } 
  sinter1->s9 { error_() and havoc() } 
  sinter2->s9 { error_() and havoc() } 
@@ -1060,7 +1060,7 @@ error s1,s11,s12,s22,s24,s29,s3,s31,s33,s35,s42,s44,s46,s5;
  s8->s13 { offset__A_ != 0*4 and i' = 0 and havoc(i) } 
  s9->s11 { offset__A_ = 0*4 and havoc() } 
  s9->s14 { offset__A_ != 0*4 and i' = 0 and havoc(i) } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 printf{
 in a,b,c,d: int;

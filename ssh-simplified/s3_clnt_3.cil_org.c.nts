@@ -65,7 +65,7 @@ error s2,s4,s6;
  s3->sinter0 { havoc() } 
  s5->s7 { __retres' = 0 and havoc(__retres) } 
  s7->s8 { ret_val_' = __retres and havoc(ret_val_) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s5 { (__nts__naffected_ret_val_',validity____nts__naffected_ret_val__')=ssl3_connect(s,1) and havoc(__nts__naffected_ret_val_,validity____nts__naffected_ret_val__) }
 }
 memcpy{
@@ -468,7 +468,7 @@ error s1,s101,s102,s104,s107,s108,s11,s111,s115,s117,s120,s123,s125,s126,s128,s1
  s95->s110 { blastFlag != 0 and havoc() } 
  s97->s112 { havoc() } 
  s98->s113 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s218 { (ret',validity__ret_')=__VERIFIER_nondet_int() and havoc(ret,validity__ret_) } 
  sinter1->s218 { (ret',validity__ret_')=__VERIFIER_nondet_int() and havoc(ret,validity__ret_) } 
  sinter10->s105 { (buf',validity__buf_')=__VERIFIER_nondet_int() and havoc(buf,validity__buf_) } 

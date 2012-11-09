@@ -61,7 +61,7 @@ initial sinit;
 final s1;
  
  s0->s1 { ret_val_' = retval and havoc(ret_val_) } 
- sinit->s0 {  }
+ sinit->s0 { havoc() }
 }
 main{
 
@@ -160,7 +160,7 @@ error s10,s100,s102,s103,s104,s105,s108,s110,s111,s112,s113,s116,s118,s119,s12,s
  s98->s93 { havoc() } 
  s99->s103 { lk5 != 1 and havoc() } 
  s99->s106 { lk5 = 1 and lk5' = 0 and havoc(lk5) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s4 { (cond',validity__cond_')=get_exit_nondet() and havoc(cond,validity__cond_) }
 }
 memcpy{

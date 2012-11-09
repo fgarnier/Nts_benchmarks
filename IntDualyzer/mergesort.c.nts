@@ -80,7 +80,7 @@ error s10,s12,s14,s15,s18,s20,s22,s23,s25,s27,s3,s5,s8;
  s7->s11 { havoc() } 
  s9->s11 { k >= dim and havoc() } 
  s9->s13 { k < dim and havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s16 { error_() and havoc() } 
  sinter1->s26 { error_() and havoc() } 
  sinter2->s28 { copyseq(offset__a_,-1,offset__t_,-1,i+1,-1,j,-1,k+1,-1) and havoc() }
@@ -92,7 +92,7 @@ initial sinit;
 final no_rechable_final_state;
 error s1,s2; 
  s0->sinter0 { havoc(_ndet_arg_1,_ndet_arg_2) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s2 { __assert_fail(_ndet_arg_0,1,_ndet_arg_1,1,9,1,_ndet_arg_2,1) and havoc() }
 }
 main{
@@ -125,7 +125,7 @@ error s1,s11,s13,s15,s17,s19,s21,s23,s3,s5,s7,s9;
  s6->s8 { 3 < 10 and 3 >= 0 and havoc() } 
  s8->s10 { 4 < 10 and 4 >= 0 and havoc() } 
  s8->s9 { not (4 < 10 and 4 >= 0) and havoc() } 
- sinit->s0 { mid_1_size' = 10*4 and mid_2_size' = 10*4 } 
+ sinit->s0 { mid_1_size' = 10*4 and mid_2_size' = 10*4 and havoc() } 
  sinter0->s22 { msort(_ndet_arg_0,1,0,1,dim-1,-1) and havoc() }
 }
 memcpy{
@@ -157,7 +157,7 @@ error s1,s10,s12,s14,s16,s3,s6,s9;
  s5->sinter1 { m <=  0 and havoc() } 
  s7->s8 { havoc() } 
  s8->s11 { __lengthoft' = m and havoc(__lengthoft) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s7 { error_() and havoc() } 
  sinter1->s7 { error_() and havoc() } 
  sinter2->s13 { (validity__t_',offset__t_')=__builtin_alloca(4*__lengthoft,-1) and havoc(validity__t_,offset__t_) } 
@@ -228,7 +228,7 @@ error s10,s12,s14,s16,s18,s19,s2,s22,s24,s26,s28,s29,s32,s34,s36,s38,s40,s42,s44
  s8->s6 { havoc() } 
  s9->s11 { i < 0 and havoc() } 
  s9->s13 { i >= 0 and havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s3 { copyseq(offset__a_,-1,offset__t_,-1,j,-1,ju,-1,k,-1) and havoc() } 
  sinter1->s3 { copyseq(offset__a_,-1,offset__t_,-1,j,-1,ju,-1,k,-1) and havoc() } 
  sinter10->s76 { error_() and havoc() } 
@@ -257,7 +257,7 @@ error s11,s3,s4,s7,s9;
  s2->s6 { havoc() } 
  s5->sinter0 { havoc() } 
  s8->sinter1 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s8 { msort(offset__a_,-1,i,-1,m,-1) and havoc() } 
  sinter1->s10 { msort(offset__a_,-1,m+1,-1,j,-1) and havoc() } 
  sinter2->s12 { merge(offset__a_,-1,i,-1,m,-1,j,-1) and havoc() }

@@ -149,7 +149,7 @@ error s1,s100,s102,s106,s108,s112,s115,s117,s122,s124,s128,s131,s133,s139,s14,s1
  s96->s104 { havoc() } 
  s98->s93 { havoc() } 
  s99->s105 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s113 { _error() and havoc() } 
  sinter1->s125 { _error() and havoc() } 
  sinter10->s85 { _error() and havoc() } 
@@ -205,7 +205,7 @@ initial sinit;
 final no_rechable_final_state;
 error s1,s2; 
  s0->sinter0 { havoc(_ndet_arg_1,_ndet_arg_2) } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s2 { __assert_fail(_ndet_arg_0,1,_ndet_arg_1,1,4,1,_ndet_arg_2,1) and havoc() }
 }
 abs{
@@ -255,7 +255,7 @@ error s14,s16,s20,s22,s23,s26,s28,s29,s32,s34,s36,s37,s39,s4,s41,s6,s7;
  s5->s9 { havoc() } 
  s8->s10 { havoc() } 
  s9->s11 { havoc() } 
- sinit->s0 {  } 
+ sinit->s0 { havoc() } 
  sinter0->s30 { _error() and havoc() } 
  sinter1->s40 { _error() and havoc() }
 }
@@ -268,7 +268,7 @@ error s1,s3;
  s0->sinter0 { havoc() } 
  s2->sinter1 { havoc() } 
  s4->s5 { havoc() } 
- sinit->s0 { mid_1_size' = (10*10)*4 and mid_2_size' = (10*10)*4 } 
+ sinit->s0 { mid_1_size' = (10*10)*4 and mid_2_size' = (10*10)*4 and havoc() } 
  sinter0->s2 { init_arrF2(_ndet_arg_0,1,0,1,0,1,dim-1,-1,dim-1,-1) and havoc() } 
  sinter1->s4 { SOR_execute(dim,-1,dim,-1,2,1,_ndet_arg_0,1,1,1) and havoc() }
 }
